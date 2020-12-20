@@ -1,0 +1,80 @@
+{% extends 'basic.html' %}
+{% block meta_desc %} welcome my coding site{%endblock %}
+{% block meta_author %} M Rahman{% endblock %}
+{% block title%}mCoder {% endblock title %}
+{% block css %} {% endblock css %}
+
+{% block body %}
+{% load static %}
+{% block preloader %} <div class="loader_bg"><div class="loader"></div></div>{% endblock %}
+
+<!-- intro section start here-->
+<section class="intro text-center bg-light py-5">
+	<div class="container">
+		<div class="row">
+			<div class="col">
+				<img src="/static/img/mrahmandusp.jpg" alt="mrahmandusp" class="img-fluid">
+        <div class="header-area">
+          <h2><span class="type"></span></h2>
+        </div>
+        <p class="lead">This is my practicing website.In this site i will save all learnig process of wesite design and development and it will one of my open source  :) </p>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- Card section-->
+<section class="my-5">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4">
+        <div class="card">
+          <img src="/static/img/mrahmandusp.jpg" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">Starting Points </h5>
+            <p class="card-text">The starting process of.</p>
+            <a class="btn btn-warning " href="/video/" >See Details </a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">   <div class="card">
+        <img src="/static/img/mrahmandusp.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Blog  </h5>
+          <p class="card-text">Our acivities and reguler blog are here. </p>
+          <a class="btn btn-warning" href="/blog/">View Blog </a>
+        </div>
+      </div></div>
+      <div class="col-md-4">   <div class="card">
+        <img src="/static/img/mrahmandusp.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Contact me </h5>
+          <p class="card-text">If you have any question or any need for designing website or developying, please feel free to contact with me.</p>
+          <a class="btn btn-warning" href="/contact/">contact me </a>
+        </div>
+      </div></div>
+    </div>
+  </div>
+</section>
+
+{% endblock %}
+{% block js %}
+<script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11"></script>
+<script>
+  var typed = new Typed('.type', {
+    strings: [
+    "Welcome to mCoder",
+    " I'm a Web Developer",
+    " App Developer",
+    " Wordpress theme customizer",
+    "Laravel Expart",
+
+    ],
+    typeSpeed: 50,
+    backSpeed: 50,
+    loop: true,
+    smartSpace:true
+  });
+
+</script>
+{% endblock %}
+

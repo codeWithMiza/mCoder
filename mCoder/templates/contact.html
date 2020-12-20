@@ -1,0 +1,48 @@
+{% extends 'basic.html' %}
+{% block meta_desc %} welcome my coding site{%endblock %}
+{% block meta_author %} M Rahman{% endblock %}
+{% block title%}contact | mCoder {% endblock %}
+{% block css %} {% endblock css %}
+
+
+{% block body %}
+{% load static %}
+{% for message in messages  %}
+      <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+            <strong>Message : </strong> {{ message }}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+{% endfor %}
+<section class="my-5 px-5">
+  <div class="container">
+  <div class="row">
+    <div class="col px-md-5 mx-md-5">
+      <h2>Plese fill up below info,We will back you as soon as possible </h2>
+      <form action="/contact/"  method="post">
+        {% csrf_token %}
+        <div class="form-group">
+          <label for="cname">Name</label>
+          <input type="text" class="form-control" id="cname" name="name" required>
+        </div>
+        <div class="form-group">
+          <label for="mail">Email address</label>
+          <input type="email" class="form-control" id="mail" name="email"  aria-describedby="emailHelp" required>
+          <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+        </div>
+        <div class="form-group">
+          <label for="phone">Phone</label>
+          <input type="phone" class="form-control" id="phone" name="phone">
+        </div>
+        <div class="form-group">
+          <label for="Textarea">Message</label>
+          <textarea class="form-control" id="Textarea" rows="3" name="message" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary" >Send</button>
+      </form>
+    </div> 
+  </div>
+</div>
+</section>
+{% endblock %}

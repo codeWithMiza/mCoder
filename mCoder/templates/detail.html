@@ -1,0 +1,122 @@
+{% extends 'basic.html' %}
+{% block meta_desc %} welcome my coding site{%endblock %}
+{% block meta_author %} M Rahman{% endblock %}
+{% block title%}details | mCoder {% endblock %}
+{% block css %}
+{% endblock %}
+
+{% block body %}
+{% load static %}
+<!-- content section-->
+
+<section class="container-fluid pt-3">
+  <div class="row">
+    <div class="col-md-9">
+      <div class="container videoContainer embed-responsive embed-responsive-16by9 px-3" id="toggleVideo">
+       <iframe width="560" height="315" src="https://www.youtube.com/embed/pvbYUtcRaP8?start=60" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+       <hr>
+       </div>
+       <ul class="nav nav-tabs" id="myTab" role="tablist">
+        <li class="nav-item" role="presentation">
+          <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Content</a>
+        </li>
+        <li class="nav-item" role="presentation">
+          <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Q&A</a>
+        </li>
+        <li class="nav-item" role="presentation">
+          <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Files</a> 
+        </li>
+      </ul>
+
+      <div class="tab-content container" id="myTabContent">
+        <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+        <pre>
+        <code class="language-python">
+          from django.shortcuts import redirect
+  
+          def handleSignUp(request):
+          if request.method=="POST":
+          # Get the post parameters
+          username=request.POST['username']
+          email=request.POST['email']
+          fname=request.POST['fname']
+          lname=request.POST['lname']
+          pass1=request.POST['pass1']
+          pass2=request.POST['pass2']
+  
+          # check for errorneous input
+          if len(username)<10:
+          messages.error(request, " Your user name must be under 10 characters")
+          return redirect('home')
+  
+        </code></pre>
+        <div class="clearfix">
+          <a href="" class="btn btn-danger left "><i class="fa fa-arrow-left"></i> Previous </a>
+         <a href="" class="btn btn-danger right "><span>  Next  </span> <i class="fa fa-arrow-right"></i></a>
+        </div>
+
+
+      </div>
+        <div class="tab-pane fade  pt-5" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+          <h3 class="mb-5">You must be logged in to post a comment</h3>
+          <button class="btn btn-info" data-toggle="modal" data-target="#loginModal">longIn Here</button>
+          <button class="btn btn-info ml-2" data-toggle="modal" data-target="#singUpModal">SingUp Here</button>
+          <h3 class="mt-5">Be the first person to comment on this content! </h3>
+          <h3> Comment (0)</h3>
+  
+        </div>
+        <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+          <h3>Resourees </h3>
+          <p class="lead">No downloadable files for this video. if you think you need anything, please post in the Q&A!</p>
+  
+        </div>
+      </div>
+      
+
+  </div>
+
+  <!-- right content holder section -->
+  <div class="col-md-3 d-none d-md-block">
+    <div class=" row mx-0 py-2 px-3" style="background:#9e9e9e">
+      <h5> Course Content</h5>
+      <button id="togglePlayer" class="btn btn-sm btn-danger mx-3" onclick="myFunction()">Hide Player</button>
+    </div>
+    <div id="content-box">
+      <ul class="content-holder">
+        <li class="content-holder-item  ">
+         <a href="/videos/python-django-tutorials-hindi-0">
+          1. Django Course Announcement | Python Django Tutorials #5
+          <div class="mx-3">
+            <i class="far fa-play-circle"></i> Free YouTube Video
+          </div>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+</section>
+
+
+{% endblock %}
+{%  block js %}
+<script src="/static/js/prism.js"></script>
+<script>
+  $(document).ready(function(){
+    $("#togglePlayer").click(function(){
+      $("#toggleVideo").toggle();
+    });
+  });
+
+  function myFunction() {
+    var x = document.getElementById("togglePlayer");
+    if (x.innerHTML == "Hide Player") {
+      x.innerHTML = "Show Player";
+    } else {
+      x.innerHTML = "Hide Player";
+    };
+
+  }
+</script>    
+
+{% endblock %}
