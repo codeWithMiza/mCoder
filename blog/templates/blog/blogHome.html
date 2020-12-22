@@ -18,14 +18,24 @@
             </div>
 
         </div>
-        <div class="col-auto d-none d-lg-block">
-            <svg class="bd-placeholder-img" width="200" height="250" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" >
-                <title>Placeholder</title>
-                <rect width="100%" height="100%" fill="#55595c"></rect><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text>
-            </svg>
         </div>
-        </div>
-
         {% endfor %}
+
+
+        <div class="clearfix">
+          {% if prev %}
+       <a href="/blog?page={{prev}}" class="btn btn-danger left "><i class="fa fa-arrow-left"></i> Previous </a>
+        {% else %}
+        <a class="btn btn-danger left" href="#" >Previous</a>
+        {% endif %}
+
+        {% if nxt %}
+        <a href="/blog?page={{nxt}}" class="btn btn-danger right "><span>  Next  </span> <i class="fa fa-arrow-right"></i></a>
+        {% else %}
+        <a class="btn btn-danger right" href="#" >Next</a>
+        {% endif %}
+          
+         
+        </div>
     </div>
  {% endblock %}
